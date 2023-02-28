@@ -6,4 +6,7 @@ Ruby on Rails coding weather forecast by location
 * Display the requested forecast details to the user
 * Cache the forecast details for 30 minutes for all subsequent requests by zip codes. Display indicator if result is pulled from cache.
 
+# instructions
+- create a .env file to store an `API_KEY` for VisualCrossing weather service
+
 ![screenshot](https://user-images.githubusercontent.com/42399304/221716786-75a6041b-35fa-4d20-86b7-2024c77f55dc.png)

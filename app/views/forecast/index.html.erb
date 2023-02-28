@@ -1,20 +1,33 @@
-<div>
-  <h1 class="font-bold text-4xl text-blue-500">
-    Weather Forecast
-  </h1>
+<%= form_tag("/#get_forecast", method: :get) do %>
   <div>
-    <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First name</label>
-    <input
-      type="text"
-      id="address"
-      class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="enter address or location" required
-    >
+    <h1 class="font-bold text-4xl text-blue-500">
+      Weather Forecast
+    </h1>
+    <div>
+      <%= text_field_tag :address,
+        params[:address],
+        placeholder: "address",
+        class: "border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-8"
+      %>
+    </div>
+    <%= submit_tag "Submit",
+      class: "mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center"
+    %>
+
+    <% if @temp %>
+      <h2 class="text-center text-8xl mt-8">
+        <%= @temp %>&#176;
+      </h2>
+      <div class="flex mt-8">
+        <span class="flex-1">
+          low: <%= @low %>&#176;
+        </span>
+        <span>
+          high: <%= @high %>&#176;
+        </span>
+      </div>
+    <% end %>
+
   </div>
-  <button type="submit" class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center">Submit</button>
-  <h2 class="text-center text-8xl mt-8">45&#176;</h2>
-  <div class="flex mt-8">
-    <span class="flex-1">low: 32&#176;</span>
-    <span>high: 55&#176;</span>
-  </div>
-</div>
+<% end %>
 
